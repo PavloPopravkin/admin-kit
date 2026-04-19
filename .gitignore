@@ -1,0 +1,4 @@
+# Nothing site-specific should end up here — admin-kit is the package only.
+.DS_Store
+*.tmp
+*.log

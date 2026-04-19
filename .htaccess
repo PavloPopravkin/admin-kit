@@ -1,0 +1,9 @@
+# admin-kit — only static assets should be web-callable.
+# PHP inside admin-kit/ guards via `if (!defined('ADMIN_KIT_RUNNING'))` — we also
+# block via nginx at the site level (see site/.htaccess equivalent in nginx conf).
+<FilesMatch "\.(php)$">
+  # Allow — individual files self-guard with ADMIN_KIT_RUNNING check.
+  # Keeping this open lets nginx `rewrite` to admin-kit handlers if needed in the future.
+  Require all granted
+</FilesMatch>
+Options -Indexes
